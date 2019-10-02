@@ -10,17 +10,17 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const articles = await graphql(`
-   {
-     allNodeArticle {
-       nodes {
-         id
-         title
-         path {
-           alias
-         }
-       }
-     }
-   }
+    {
+      allNodeArticle {
+        nodes {
+          id
+          title
+          path {
+            alias
+          }
+        }
+      }
+    }
  `);
 
   articles.data.allNodeArticle.nodes.map(articleData =>
@@ -32,4 +32,4 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   );
-}
+};
